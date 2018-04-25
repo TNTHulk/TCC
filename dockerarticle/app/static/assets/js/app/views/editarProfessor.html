@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">ADICIONAR / ATUALIZAR PROFESSOR <small></small></h1>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal col-sm-offset-3 col-sm-6" role="form" action="api/professores/" method="post">
+            <div class="form-group">
+                <label for="nome" class="col-sm-3 control-label">Nome</label>
+                <div class="col-sm-9">
+                    <input type="text" name="nome" id="nome" class="form-control input-md" placeholder="Digite o nome do professor:" value="{{professor.nome}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">E-mail</label>
+                <div class="col-sm-9">
+                    <input type="text" name="email" id="email" class="form-control input-md" placeholder="Digite o e-mail do professor:" value="{{professor.email}}">
+                </div>
+            </div>
+            <input type="hidden" name="id" id="id" class="form-control input-md" value="{{professor.id}}">     
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary btn-lg pull-right ">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer">
+        <small class="pull-right">Em caso de dúvidas contactar o NTI</small>
+        <div class="clearfix"></div>
+    </div>
+</div>

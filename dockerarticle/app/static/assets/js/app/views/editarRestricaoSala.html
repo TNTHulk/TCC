@@ -1,0 +1,91 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">ADICIONAR / ATUALIZAR RESTRIÇAO DA SALA <small></small></h1>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal col-sm-offset-3 col-sm-6" role="form" action="api/restricoesSalas/" method="post">
+            <div class="form-group">
+                <label for="sala" class="col-sm-3 control-label">Sala</label>
+                <div class="col-sm-9">
+                    <select id="sala" name="sala" ng-disabled="isDisabled == true" class="form-control" ng-model="selectedItem"  ng-options=" s.nome for s in salas track by s.id"></select>                 
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="descricao" class="col-sm-3 control-label">Descrição</label>
+                <div class="col-sm-9">
+                    <input type="text" name="descricao" id="descricao" class="form-control input-md" placeholder="Digite a descrição da Sala:" value="{{restricaoSala.descricao}}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="diasemana" class="col-sm-3 control-label">Dia da Semana</label>
+                <div class="col-sm-9">
+                    <select id="diasemana" name="diasemana" class="form-control">
+                        <option  value="1" >Domingo</option>
+                        <option  value="2" >Segunda</option>
+                        <option  value="3" >Terça</option>
+                        <option  value="4" >Quarta</option>
+                        <option  value="5" >Quinta</option>
+                        <option  value="6" >Sexta</option>
+                        <option  value="7" >Sabado</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="horainicio" class="col-sm-3 control-label">Hora Início</label>
+                <div class="col-sm-9">
+                    <select id="horainicio" name="horainicio" class="form-control">
+                        <option  value="07:00" >07:00</option>
+                        <option  value="08:00" >08:00</option>
+                        <option  value="09:00" >09:00</option>
+                        <option  value="10:00" >10:00</option>
+                        <option  value="11:00" >11:00</option>
+                        <option  value="12:00" >12:00</option>
+                        <option  value="13:30" >13:30</option>
+                        <option  value="14:30" >14:30</option>
+                        <option  value="15:30" >15:30</option>
+                        <option  value="16:30" >16:30</option>
+                        <option  value="17:30" >17:30</option>
+                        <option  value="18:20" >18:20</option>
+                        <option  value="19:10" >19:10</option>
+                        <option  value="20:00" >20:00</option>
+                        <option  value="20:50" >20:50</option>
+                        <option  value="21:40" >21:40</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="horafim" class="col-sm-3 control-label">Hora Fim</label>
+                <div class="col-sm-9">
+                    <select id="horafim" name="horafim" class="form-control">
+                        <option  value="08:00" >08:00</option>
+                        <option  value="09:00" >09:00</option>
+                        <option  value="10:00" >10:00</option>
+                        <option  value="11:00" >11:00</option>
+                        <option  value="12:00" >12:00</option>
+                        <option  value="13:30" >13:30</option>
+                        <option  value="14:30" >14:30</option>
+                        <option  value="15:30" >15:30</option>
+                        <option  value="16:30" >16:30</option>
+                        <option  value="17:30" >17:30</option>
+                        <option  value="18:20" >18:20</option>
+                        <option  value="19:10" >19:10</option>
+                        <option  value="20:00" >20:00</option>
+                        <option  value="20:50" >20:50</option>
+                        <option  value="21:40" >21:40</option>
+                        <option  value="22:30" >22:30</option>
+                    </select>
+                </div>
+            </div>
+            <input type="hidden" name="id" id="id" class="form-control input-md" value="{{restricaoSala.id}}">     
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary btn-lg pull-right ">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer">
+        <small class="pull-right">Em caso de dúvidas contactar o NTI</small>
+        <div class="clearfix"></div>
+    </div>
+</div>

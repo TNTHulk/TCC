@@ -1,0 +1,59 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">Relatórios</h1>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+                <label for="nome">Selecione o prédio</label>
+            <select id="predio" name="predio" class="form-control" ng-model="selectedPredio"  ng-options=" p.nome for p in predios track by p.id"></select>
+        </div>
+        <div class="form-group">
+                <label for="nome">Selecione a sala</label>
+            <select id="sala" name="sala" class="form-control" ng-model="selectedSala" ng-disabled="selectedPredio.id == null"  ng-options="s.nome for s in (salas | filter: {id_predio:selectedPredio.id})"></select>  
+        </div>
+        <div class="form-group col-md-2 col-sm-2 col-xs-12">
+                    <button type="" ng-click="gerarRelatorio(selectedSala.id,selectedPredio.id)" class="btn btn-primary col-md-12 col-sm-12 col-xs-12">Gerar Relatório</button>
+                </div>
+        
+        <table class="table table-striped table-hover table-condensed table-responsive">
+            <caption>GRADE DE HORÁRIOS SEMANAL - SALA 7 / PREDIO NOVO</caption>
+            <tr >
+                <tr>
+                <th>HORÁRIO</th>
+                <th>DIA DA SEMANA</th>
+                <th>DISCIPLINA</th>
+                <th>PROFESSOR</th>
+                <th>PRÉDIO</th>
+                <th>SALA</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="alocacao in alocacoes">
+                <th > 
+                    {{alocacao.horaInicio}} - {{alocacao.horaFim}} 
+                
+                <th > 
+                    {{alocacao.diaSemana}}
+                </th> 
+                <th > 
+                    {{alocacao.nomedisciplina}} 
+                </th> 
+                <th >   
+                    {{alocacao.nomeprofessor}}
+                </th> 
+                <th >   
+                    {{alocacao.nomepredio}} 
+                </th> 
+                <th >  
+                    {{alocacao.nomesala}}
+                </th> 
+                
+            </tr>
+        </table>
+        
+        <button class="btn btn-primary pull-right" onclick="print()">Imprimir <span class="glyphicon glyphicon-print" aria-hidden="true"></span></button>
+    </div>
+    <div class="panel-footer">
+        <small class="pull-right">Em caso de dúvidas contactar o NTI</small>
+        <div class="clearfix"></div>
+    </div>
+</div>

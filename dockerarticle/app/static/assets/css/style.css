@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+}
+
+.dropdown-menu, .my-navbar, .btn, .panel, input, .form-control {
+    border-radius: 0 !important;
+}
+
+.panel-body {
+    min-height: 445px;
+}
+
+.panel-title {
+    font-size: 22px;
+}
+
+.nav-pills li {
+    min-width: 120px !important;
+}
+
+.my-navbar {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -52px;
+}
+
+
+
+.footer, .push {
+    height: 52px;
+}
+
+footer {
+    background-color: #e7e7e7;
+}
+
+footer nav{
+    margin: 0 !important;
+}

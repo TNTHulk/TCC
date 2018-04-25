@@ -1,0 +1,48 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">Home <small>Realize consultas referentes por disciplina ou professor</small></h1>
+    </div>
+    <div class="panel-body">
+            <div class="row">
+                <div class="form-group col-md-6 col-sm-6 col-xs-12 ">
+                    <select id="professor" name="professor" class="form-control" ng-model="selectedProfessor"  ng-options=" p.nome for p in professores track by p.id">
+                    </select> 
+                </div>
+                <div class="form-group col-md-2 col-sm-2 col-xs-12">
+                    <button type="" ng-click="buscarProfessor(selectedProfessor.id)"  class="btn btn-primary col-md-12 col-sm-12 col-xs-12">Buscar Professor</button>
+                    
+                </div>
+                <div class="form-group col-md-6 col-sm-6 col-xs-12 ">
+                   <select id="disciplina" name="disciplina" ng-model="selectedDisciplina"  class="form-control"  ng-options="d.nome for d in disciplinas track by d.codigo_disciplina">
+                    </select> 
+                 </div>
+                 <div class="form-group col-md-2 col-sm-2 col-xs-12">
+                    <button type="" ng-click="buscarDisciplina(selectedDisciplina.codigo_disciplina)" class="btn btn-primary col-md-12 col-sm-12 col-xs-12">Buscar Disciplina</button>
+                </div>
+            </div> 
+            
+        <table class="table table-striped table-hover table-condensed table-responsive">
+            <caption>Resultado da consulta</caption>
+            <tr>
+                <th>DIA</th>
+                <th>SALA</th>
+                <th>PRÉDIO</th>
+                <th>HORÁRIO</th>
+                <th>DISCIPLINA</th>
+                <th>PROFESSOR</th>
+            </tr>
+            <tr ng-repeat="alocacao in alocacoes">
+                <td>{{alocacao.diaSemana}}</td>
+                <td>{{alocacao.nomesala}}</td>
+                <td>{{alocacao.nomepredio}}</td>
+                <td>{{alocacao.horaInicio}} - {{alocacao.horaFim}}</td>
+                <td>{{alocacao.nomedisciplina}}</td>
+                <td>{{alocacao.nomeprofessor}}</td>
+            </tr>
+        </table>
+   </div>
+    <div class="panel-footer">
+        <small class="pull-right">Em caso de dúvidas contactar o NTI</small>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1 class="panel-title">Alocação - Cadastro/Alteração</h1>
+    </div>
+    <div class="panel-body">
+        <form role="form" action="api/alocacoes/" method="post">
+            <div class="form-group">
+                <label for="ano">Selecione o ano</label>
+                <input type="text" name="ano" id="ano" class="form-control input-md" placeholder="Digite o Ano:" value="{{alocacao.ano}}">
+            </div>
+            <div class="form-group">
+                <label for="periodo">Selecione o periodo</label>
+                <select id="periodo" name="periodo" class="form-control">
+                        <option  value="1" >/1</option>
+                        <option  value="2" >/2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="diasemana">Selecione o dia</label>
+                <select id="diasemana" name="diasemana" class="form-control">
+                        <option  value="1" >Domingo</option>
+                        <option  value="2" >Segunda</option>
+                        <option  value="3" >Terça</option>
+                        <option  value="4" >Quarta</option>
+                        <option  value="5" >Quinta</option>
+                        <option  value="6" >Sexta</option>
+                        <option  value="7" >Sabado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="predio">Selecione o prédio</label>
+                 <select id="predio" name="predio" class="form-control" ng-model="selectedPredio" ng-options="predio.nome for predio in predios track by predio.id">
+                </select>
+            </div>   
+            <div class="form-group">
+                <label for="sala">Selecione a sala</label>
+                <select id="sala" name="sala" class="form-control" ng-model="selectedSala" ng-options="sala.nome for sala in (salas | filter: {id_predio:selectedPredio.id}) track by sala.id" ng-disabled="selectedPredio.id == null" >
+                </select>
+            </div>        
+            <div class="form-group">
+                <label for="professor">Professor</label>
+               <select id="professor" name="professor" class="form-control" ng-model="selectedProfessor"  ng-options=" p.nome for p in professores track by p.id">
+                </select> 
+            </div>
+            <div class="form-group">
+                <label for="disciplina">Selecione a diciplina</label>
+                <select id="disciplina" name="disciplina"  class="form-control" ng-model="selectedDisciplina"  ng-options=" d.nome for d in disciplinas track by d.codigo_disciplina"></select>  
+            </div>
+            <div class="form-group">
+                <label for="horainicio">Selecione o horário de início</label>
+                <select id="horainicio" name="horainicio" class="form-control">
+                        <option  value="07:00" >07:00</option>
+                        <option  value="08:00" >08:00</option>
+                        <option  value="09:00" >09:00</option>
+                        <option  value="10:00" >10:00</option>
+                        <option  value="11:00" >11:00</option>
+                        <option  value="12:00" >12:00</option>
+                        <option  value="13:30" >13:00</option>
+                        <option  value="14:30" >14:00</option>
+                        <option  value="15:30" >15:00</option>
+                        <option  value="16:30" >16:00</option>
+                        <option  value="17:30" >17:00</option>
+                        <option  value="18:20" >18:00</option>
+                        <option  value="19:10" >19:00</option>
+                        <option  value="20:00" >20:00</option>
+                        <option  value="20:50" >20:00</option>
+                        <option  value="21:40" >21:00</option>
+                        <option  value="22:30" >22:00</option>
+                        <option  value="22:30" >23:00</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="horafim">Selecione o horário de término</label>
+                 <select id="horafim" name="horafim" class="form-control">
+                        <option  value="08:00" >08:00</option>
+                        <option  value="09:00" >09:00</option>
+                        <option  value="10:00" >10:00</option>
+                        <option  value="11:00" >11:00</option>
+                        <option  value="12:00" >12:00</option>
+                        <option  value="13:30" >13:00</option>
+                        <option  value="14:30" >14:00</option>
+                        <option  value="15:30" >15:00</option>
+                        <option  value="16:30" >16:00</option>
+                        <option  value="17:30" >17:00</option>
+                        <option  value="18:20" >18:00</option>
+                        <option  value="19:10" >19:00</option>
+                        <option  value="20:00" >20:00</option>
+                        <option  value="20:50" >20:00</option>
+                        <option  value="21:40" >21:00</option>
+                        <option  value="22:30" >22:00</option>
+                        <option  value="22:30" >23:00</option>
+                </select>
+            </div>        
+            <div class="form-group">
+                <label for="descricao">Descrição</label>
+                <input class="form-control" name="descricao" id="descricao" placeholder="Digite uma descrição">
+            </div>
+            <input type="hidden" name="id" id="id" class="form-control input-md" value="{{alocacao.id}}">
+            <input type="hidden" name="idrestricao" id="idrestricao" class="form-control input-md" value="{{alocacao.idRestricao}}">
+            <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+        </form>
+       
+    </div>
+    <div class="panel-footer">
+        <small class="pull-right">Em caso de dúvidas contactar o NTI</small>
+        <div class="clearfix"></div>
+    </div>
+</div>
